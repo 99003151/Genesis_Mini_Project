@@ -9,14 +9,16 @@ class Passenger:public Train
 private:
     std::string passenger_name;
     int age;
-    int PNR;
     double distance_btw_cities;
     std::string seatPreference;
-    std::string couchClass;
+    int PNR;
+    std::string coach;
+
 
 public:
 
     Passenger();
+    Passenger(std::string,std::string,std::string, std::string,std::string,int,double,std::string);
     double fare();
     double travelTime();
     void display();
@@ -24,7 +26,9 @@ public:
     int getAge();
     double getDistance();
     std::string getSeatPreference();
-    std::string getCoachClass();
+    std::string getCoach();
+    int generatePNR();
+    int getPNR();
 
 };
 
