@@ -10,22 +10,26 @@ int main()
     int age;
     PassengerList L1;
     std::string seat;
+    int cancelPNR;
+    int option;
+    char repeat;
 
     std::cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
     std::cout<<".......WELCOME TO RAILWAY RESERVATION SYSTEM..........\n";
     std::cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n";
 
+    do{
     std::cout<<"Choose Option \n1.User\n2.Admin\n\n";
-    int option;
-    char repeat;
+
     std::cin>>option;
 
-    do{
+
     switch (option)
     {
     case 1:
         std::cout<<"1.View Train Details\n";
         std::cout<<"2.Reservation\n";
+        std::cout<<"3.Cancellation\n";
         std::cin>>option;
         switch(option)
         {
@@ -55,6 +59,12 @@ int main()
                 break;
             }}
             break;
+
+            case 3:
+                std::cout<<"Enter the PNR Number to be cancelled\n";
+                std::cin>>cancelPNR;
+                L1.removeTripByPNR(cancelPNR);
+                break;
 
 
 
