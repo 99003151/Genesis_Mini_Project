@@ -1,3 +1,4 @@
+
 #include<iostream>
 
 #ifndef __PASSENGER_H
@@ -33,5 +34,4 @@ public:
 };
 
 #endif
-
 

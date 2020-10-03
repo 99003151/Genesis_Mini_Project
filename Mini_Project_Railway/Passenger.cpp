@@ -29,7 +29,7 @@ return PNR;
 }
 
 int Passenger::getPNR(){
-cout<<PNR<<endl;
+
 return PNR;}
 
 void Passenger::display(){

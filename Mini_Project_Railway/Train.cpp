@@ -4,31 +4,7 @@
 #include"Travellist.h"
 using namespace std;
 
-int main()
-{
-    char a;
-    string b;
-    string c;
-    string d;
-    int f;
-    PassengerList L1;
-    do{
-    cout<<"Source:\n";
-    cin>>b;
-    cout<<"Destination:\n";
-    cin>>c;
-    cout<<"Name:\n";
-    cin>>d;
-    cout<<"Age:\n";
-    cin>>f;
-    L1.addTrip(b,c,"104958","Nethravathi",d,f,500,"WS");
-    cout<<"Add More Passenger\n";
-    cin>>a;
-    }
-    while(a=='Y'||a=='y');
-    L1.displayAll();
-    return 0;
-}
+
 
 
 Train::Train():
