@@ -18,7 +18,12 @@ for(iter=Janashathabdhi.begin();iter!=Janashathabdhi.end();++iter)
     }
     if(iter!=Janashathabdhi.end())
     {
+        std::cout<<"Cancelling Trip\n";
         Janashathabdhi.erase(iter);
+    }
+    else
+    {
+        std::cout<<"PNR not Found\n";
     }
 }
 
