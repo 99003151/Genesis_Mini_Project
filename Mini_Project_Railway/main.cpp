@@ -9,8 +9,25 @@ int main()
     std::string name;
     int age;
     PassengerList L1;
+    PassengerList L2;
+
+
+    L1.addTrip("Bangalore","Chennai","104958","Janashathabdhi","Lab",22,500,"WS");
+    L1.addTrip("Bangalore","Chennai","104958","Janashathabdhi","HAb",45,500,"SU");
+    L1.addTrip("Bangalore","Chennai","104958","Janashathabdhi","cab",30,500,"SL");
+    L1.addTrip("Bangalore","Chennai","104958","Janashathabdhi","ram",10,500,"WS");
+    L2.addTrip("Bangalore","Chennai","104958","Rajadhani","Labee",22,500,"WS");
+    L2.addTrip("Bangalore","Chennai","104958","Rajadhani","HAbee",45,500,"SU");
+    L2.addTrip("Bangalore","Chennai","104958","Rajadhani","cabee",30,500,"SL");
+    L2.addTrip("Bangalore","Chennai","104958","Rajadhani","ramee",10,500,"WS");
+    L2.addTrip("Bangalore","Chennai","104958","Rajadhani","cabee",30,500,"SL");
+    L2.addTrip("Bangalore","Chennai","104958","Rajadhani","ramee",10,500,"WS");
+
+
+
     std::string seat;
     int cancelPNR;
+    int checkPNR;
     int option;
     char repeat;
 
@@ -30,20 +47,21 @@ int main()
         std::cout<<"1.View Train Details\n";
         std::cout<<"2.Reservation\n";
         std::cout<<"3.Cancellation\n";
+        std::cout<<"4.Find Passenger Details\n";
         std::cin>>option;
         switch(option)
         {
         case 1:
             std::cout<<"Train Number     Train Name         Source       Destination     Fare\n";
             std::cout<<"104958           Janashathabdhi     Bangalore    Chennai         500\n";
-            std::cout<<"298764           Rajadhani          Chennai      Bangalore\n";
+            std::cout<<"298764           Rajadhani          Chennai      Bangalore       700\n";
             break;
 
         case 2:
-            std::cout<<"Train Number     Train Name         Source       Destination\n";
-            std::cout<<"1. 104958        Janashathabdhi     Bangalore    Chennai\n";
-            std::cout<<"2. 298764        Rajadhani          Chennai      Bangalore\n";
-            std::cout<<"\nTrain Number to be booked\n";
+            std::cout<<"   Train Number     Train Name         Source       Destination     Fare\n";
+            std::cout<<"1. 104958           Janashathabdhi     Bangalore    Chennai         500\n";
+            std::cout<<"2. 298764           Rajadhani          Chennai      Bangalore       700\n";
+            std::cout<<"\nTrain to be booked\n";
             std::cin>>option;
             switch(option)
             {
@@ -52,21 +70,65 @@ int main()
                 std::cin>>name;
                 std::cout<<"\nAge: ";
                 std::cin>>age;
-                std::cout<<"\nSeat Preference: ";
+                std::cout<<"\nSeat Preference(WS/SU/SL): ";
                 std::cin>>seat;
                 L1.addTrip("Bangalore","Chennai","104958","Janashathabdhi",name,age,500,seat);
-                L1.displayAll();
+                cout<<"Ticket Booked\nPNR:";
+                L1.findPNR(name,age);
                 break;
-            }}
+            case 2:
+                std::cout<<"Name: ";
+                std::cin>>name;
+                std::cout<<"\nAge: ";
+                std::cin>>age;
+                std::cout<<"\nSeat Preference(WS/SU/SL): ";
+                std::cin>>seat;
+                L2.addTrip("Bangalore","Chennai","298764","Rajadhani",name,age,500,seat);
+                cout<<"\nTicket Booked\nPNR:";
+                L2.findPNR(name,age);
+                break;
+            }
             break;
 
-            case 3:
-                std::cout<<"Enter the PNR Number to be cancelled\n";
-                std::cin>>cancelPNR;
+        case 3:
+            std::cout<<"Enter the PNR Number to be cancelled\n";
+            std::cin>>cancelPNR;
+            std::cout<<"Select the Train name\n 1.Janashathabdhi\n 2.Rajadhani\n";
+            std::cin>>option;
+            switch(option)
+            {
+            case 1:
                 L1.removeTripByPNR(cancelPNR);
                 break;
+            case 2:
+                L2.removeTripByPNR(cancelPNR);
+                break;
+            }
+            break;
+        case 4:
+            std::cout<<"Enter the PNR Number to be Checked\n";
+            std::cin>>checkPNR;
+            std::cout<<"Select the Train name\n 1.Janashathabdhi\n 2.Rajadhani\n";
+            std::cin>>option;
+            switch(option)
+            {
+            case 1:
+                std::cout<<"------------------------------------------------------------------------------\n";
+                std::cout<<"TrainNumber TrainName       Source    Destination  PNR  Name  Age  Seat Coach \n";
+                std::cout<<"------------------------------------------------------------------------------\n";
+                L1.findPassengerByPNR(checkPNR);
+                break;
+            case 2:
+                std::cout<<"------------------------------------------------------------------------------\n";
+                std::cout<<"TrainNumber TrainName       Source    Destination  PNR  Name  Age  Seat Coach \n";
+                std::cout<<"------------------------------------------------------------------------------\n";
+                L2.findPassengerByPNR(checkPNR);
+                break;
+            }
 
-
+            break;
+        }
+        break;
 
     case 2:
         std::string password;
@@ -75,16 +137,55 @@ int main()
         if(password=="password")
         {
             std::cout<<"Admin Login Successful\n";
+            std::cout<<"1. List of All Passengers in Janashathabdhi\n";
+            std::cout<<"2. List of All Passengers in Rajadhani\n";
+            std::cout<<"3. Total Number of Passengers in Rajadhani\n";
+            std::cout<<"4. Total Number of Passengers in Janashathabdhi\n";
+
+            std::cin>>option;
+            switch(option)
+            {
+            case 1:
+                std::cout<<"------------------------------------\n";
+                std::cout<<"List Of Passengers In Janashathabdhi\n";
+                std::cout<<"------------------------------------\n";
+                std::cout<<"PNR    Name    Age    Seat   Coach \n";
+                std::cout<<"------------------------------------\n";
+                L1.displayAll();
+                std::cout<<"------------------------------------\n";
+                break;
+            case 2:
+                std::cout<<"------------------------------------\n";
+                std::cout<<"List Of Passengers In Rajadhani\n";
+                std::cout<<"------------------------------------\n";
+                std::cout<<"PNR    Name    Age    Seat   Coach \n";
+                std::cout<<"------------------------------------\n";
+                L2.displayAll();
+                std::cout<<"------------------------------------\n";
+                break;
+            case 3:
+                std::cout<<"--------------------------------------------\n";
+                cout<<"Total Number Of Passengers In Janashathabdhi: ";
+                L1.countNumberOfPassengers();
+                std::cout<<"\n------------------------------------------\n";
+                break;
+            case 4:
+                std::cout<<"-------------------------------------------\n";
+                cout<<"Total Number Of Passengers In Rajadhani: ";
+                L2.countNumberOfPassengers();
+                std::cout<<"\n-----------------------------------------\n";
+                break;
+            }
         }
         else
         {
             std::cout<<"Incorrect Password\n";
             break;
         }
-        L1.displayAll();
+
         break;
     }
-    std::cout<<"Repeat Again(Y/N)\n";
+    std::cout<<"\nRepeat Again(Y/N)\n";
     std::cin>>repeat;
 
     }while(repeat=='y'||repeat=='Y');

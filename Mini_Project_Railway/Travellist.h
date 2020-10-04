@@ -7,7 +7,7 @@
 class PassengerList
 {
 private:
-    std::list<Passenger> Janashathabdhi;
+    std::list<Passenger> TrainList;
 
 public:
     void addTrip(std::string,std::string,std::string, std::string,std::string,int,double,std::string);
@@ -15,6 +15,7 @@ public:
     Passenger* findPassengerByPNR(int);
     int countNumberOfPassengers();
     void displayAll();
+    int findPNR(std::string,int);
 
 
 };

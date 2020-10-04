@@ -16,6 +16,7 @@ class Train
         virtual double fare()=0;
         virtual double travelTime()=0;
         virtual void display()=0;
+        virtual void displayDetails()=0;
         std::string getSource();
         std::string getDestination();
         std::string getTrainNumber();

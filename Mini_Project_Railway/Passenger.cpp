@@ -33,12 +33,17 @@ int Passenger::getPNR(){
 return PNR;}
 
 void Passenger::display(){
-cout<<"NAME= "<<passenger_name<<endl;
-cout<<"AGE= "<<age<<endl;
-cout<<"SEAT= "<<seatPreference<<endl;
-cout<<"PNR= "<<PNR<<endl;
-cout<<"COACH= "<<coach<<endl;
-cout<<"---------------------------------------------------\n";
+std::cout<<PNR<<"   "<<passenger_name<<"     "<<age<<"     "<<seatPreference<<"     "<<coach<<std::endl;
+
+}
+
+void Passenger::displayDetails(){
+    std::string Name=getTrainName();
+    std::string Number=getTrainNumber();
+    std::string Source=getSource();
+    std::string Destination=getDestination();
+std::cout<<Number<<"     "<<Name<<"   "<<Source<<"  "<<Destination<<"     "<<PNR<<"  "<<passenger_name<<"  "<<age<<"   "<<seatPreference<<"    "<<coach<<std::endl;
+
 }
 
 std::string Passenger::getName(){
