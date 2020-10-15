@@ -1,5 +1,7 @@
 # Genesis_Mini_Project
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/29fa0764936a437da0d99586d06a9aaa)](https://app.codacy.com/gh/99002617/Genesis_Mini_Project?utm_source=github.com&utm_medium=referral&utm_content=99002617/Genesis_Mini_Project&utm_campaign=Badge_Grade)
+
 |Build|CppCheck|Valgrind|Unit Testing|Codacy|
 |-----|--------|--------|------------|------|
 |![C/C++ CI](https://github.com/99002617/Genesis_Mini_Project/workflows/C/C++%20CI/badge.svg)|![cppcheck-action](https://github.com/99002617/Genesis_Mini_Project/workflows/cppcheck-action/badge.svg)|![Valgrind](https://github.com/99002617/Genesis_Mini_Project/workflows/Valgrind/badge.svg)|![UNIT TESTING](https://github.com/99002617/Genesis_Mini_Project/workflows/UNIT%20TESTING/badge.svg)|
